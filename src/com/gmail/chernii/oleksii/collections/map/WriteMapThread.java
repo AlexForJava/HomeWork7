@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentMap;
  * Created by Space on 17.03.2019.
  */
 public class WriteMapThread extends Thread {
-    ConcurrentMap<Integer, String> map;
+    private ConcurrentMap<Integer, String> map;
 
     public WriteMapThread(String name, ConcurrentMap<Integer, String> map) {
         super.setName(name);

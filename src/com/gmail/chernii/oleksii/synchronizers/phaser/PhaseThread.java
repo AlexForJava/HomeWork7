@@ -17,25 +17,17 @@ public class PhaseThread implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(name + " performs phase " + phaser.getPhase());
-        phaser.arriveAndAwaitAdvance();
-        try{
+        try {
+            System.out.println(name + " performs phase " + phaser.getPhase());
+            phaser.arriveAndAwaitAdvance();
             Thread.sleep(200);
-        }
-        catch(InterruptedException ex){
-            System.out.println(ex.getMessage());
-        }
-
-        System.out.println(name + " performs phase " + phaser.getPhase());
-        phaser.arriveAndAwaitAdvance();
-        try{
+            System.out.println(name + " performs phase " + phaser.getPhase());
+            phaser.arriveAndAwaitAdvance();
             Thread.sleep(200);
+            System.out.println(name + " performs phase " + phaser.getPhase());
+            phaser.arriveAndDeregister();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        catch(InterruptedException ex){
-            System.out.println(ex.getMessage());
-        }
-
-        System.out.println(name + " performs phase " + phaser.getPhase());
-        phaser.arriveAndDeregister();
     }
 }
